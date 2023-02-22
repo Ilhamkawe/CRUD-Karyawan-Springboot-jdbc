@@ -1,0 +1,109 @@
+    <form
+                      class="form form-vertical"
+                      th:action="@{/{kode}/update(kode=${data.kodeKaryawan})}"
+                      th:object="${update}"
+                      method="POST"
+                      data-parsley-validate
+                    >
+                      <div class="form-body">
+                        <div class="row">
+                          <div class="col-12">
+                            <input type="hidden" name="_method" value="PUT" />
+                            <div class="form-group">
+                              <label for="first-name-vertical"
+                                >Kode Karyawan</label
+                              >
+                              <input
+                                th:value="${data.kodeKaryawan}"
+                                type="text"
+                                id="first-name-vertical"
+                                class="form-control"
+                                th:name="kodeKaryawan"
+                                placeholder="Kode Karyawan"
+                                data-parsley-required="true"
+                                readonly
+                              />
+                            </div>
+                            <div class="form-group">
+                              <label for="first-name-vertical"
+                                >Nama Karyawan</label
+                              >
+                              <input
+                                th:value="${data.nama}"
+                                type="text"
+                                id="first-name-vertical"
+                                class="form-control"
+                                th:name="nama"
+                                placeholder="Nama"
+                                data-parsley-required="true"
+                                required
+                              />
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="form-group">
+                              <label for="email-id-vertical"
+                                >Tanggal masuk</label
+                              >
+                              <input
+                                type="date"
+                                th:value="${data.tglMasuk}"
+                                id="email-id-vertical"
+                                class="form-control"
+                                th:name="tglMsk"
+                                placeholder="Tanggal Masuk"
+                                data-parsley-required="true"
+                                data-parsley-trigger="change"
+                                data-parsley-tanggalmasukkerja
+                                required
+                              />
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="form-group">
+                              <label for="contact-info-vertical"
+                                >Nomer HP</label
+                              >
+                              <input
+                                type="text"
+                                th:value="${data.noHP}"
+                                id="contact-info-vertical"
+                                class="form-control"
+                                th:name="noHP"
+                                placeholder="Nomer HP"
+                                data-parsley-required="true"
+                                data-parsley-type="number"
+                                data-parsley-pattern="^[0-9]{12}$"
+                                required
+                              />
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="form-group">
+                              <label for="password-vertical"
+                                >Limit Reimbursement</label
+                              >
+                              <input
+                                type="number"
+                                th:value="${data.limitReimbursement}"
+                                id="password-vertical"
+                                class="form-control"
+                                th:name="limitReimbursement"
+                                placeholder="Limit Reimbursement"
+                                data-parsley-required="true"
+                                data-parsley-min="0"
+                                required
+                              />
+                            </div>
+                          </div>
+                          <div class="col-12 d-flex justify-content-end">
+                            <button
+                              type="submit"
+                              class="btn btn-primary me-1 mb-1"
+                            >
+                              Update
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
